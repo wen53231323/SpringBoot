@@ -1,0 +1,24 @@
+server:
+  port: 80
+
+# 数据库连接相关的数据源配置
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC
+      username: root
+      password: 123456
+
+# MP相关配置
+mybatis-plus:
+  global-config:
+    db-config:
+      # 设置所有表的通用前缀名称为tbl_
+      table-prefix: tbl_
+      # 设置主键id字段的生成策略为参照数据库设定的策略，当前数据库设置id生成策略为自增
+      id-type: auto
+  configuration:
+    # 开启日志，设置日志输出方式为标准输出即可查阅SQL执行日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

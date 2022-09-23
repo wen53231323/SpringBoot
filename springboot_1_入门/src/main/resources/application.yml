@@ -1,0 +1,15 @@
+str: "Hello World"
+key:
+  key1: value1
+  key2: value2
+list:
+ - a
+ - b
+ - c
+
+
+datesource:
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost/springboot
+  username: root
+  password: 123456

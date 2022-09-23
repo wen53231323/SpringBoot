@@ -1,0 +1,42 @@
+# 配置相关信息
+spring:
+  # 配置数据源信息
+  datasource:
+    dynamic:
+      # 设置默认的数据源或者数据源组,默认值即为master
+      primary: master
+      # 严格匹配数据源，默认false使用默认数据源，true未匹配到指定数据源时抛异常
+      strict: false
+      datasource:
+        # 主数据源
+        master:
+          url: jdbc:mysql://localhost:3306/ssm?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          username: root
+          password: 123456
+        # 从数据源
+        slave_1:
+          # 数据库名称？是否使用安全链接，字符集编码，是否使用解码，设置时区
+          url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          username: root
+          password: 123456
+
+# MyBatis-Plus相关配置
+mybatis-plus:
+  configuration:
+    #配置日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 全局配置
+  global-config:
+    db-config:
+      # 设置所有表的通用前缀名称为t_
+      table-prefix: t_
+      # 设置主键的生成策略（assign_id雪花算法，auto自增）
+      id-type: auto
+  # 自定义映射文件路径，默认为mapper/**/*.xml
+  mapper-locations: mapper/**/*.xml
+  # 配置类型别名所对应的包
+  type-aliases-package: com.wen.pojo
+  # 扫描通用枚举的包
+  type-enums-package: com.wen.enums

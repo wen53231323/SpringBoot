@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性：对应mapper接口的全类名 -->
+<mapper namespace="com.wen.mapper.UserMapper">
+    <!-- id与方法名一致，resultType表示返回值类型-->
+    <select id="selectMapById" resultType="map">
+        select * from t_user where id = #{id};
+    </select>
+
+    <!-- id与方法名一致，resultType表示返回值类型-->
+    <select id="selectPageByAge" resultType="User">
+        select * from t_user where username = #{username}
+    </select>
+</mapper>
